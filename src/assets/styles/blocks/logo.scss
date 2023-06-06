@@ -1,0 +1,24 @@
+/* Logo */
+.logo__icon {
+    fill: $black;
+    width: 7rem;
+    height: 7rem;
+
+    display: block;
+    margin-bottom: 1.5rem;
+
+    &--footer {
+        fill: $white;
+        width: 6rem;
+        height: 6rem;
+    }
+}
+
+.logo__title {
+    font-weight: 700;
+    font-size: 2rem;
+
+    &--footer {
+        font-size: 1.8rem;
+    }
+}

@@ -1,0 +1,29 @@
+/* Btn */
+.btn {
+    display: block;
+    flex-shrink: 0;
+    line-height: 1.1;
+    font-weight: 400;
+    font-family: $font-text;
+    font-size: 1.6rem;
+    color: $black;
+
+    padding: .33em;
+    border: 0;
+    background: none;
+
+    cursor: pointer;
+
+    &--search {
+        font-size: 0;
+        color: transparent;
+        padding: 0;
+
+        &:hover, &:focus {
+            outline: 0;
+            > .header__icon--search {
+                fill: $light-blue;
+            }
+        }
+    }
+}

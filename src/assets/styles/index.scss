@@ -1,0 +1,56 @@
+@import "vars";
+@import "mixins";
+
+html {
+    font-size: 10px;
+}
+
+body {
+    margin: 0;
+
+    font-family: $font-text;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: $black;
+
+}
+
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-family: $font-text;
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+    font-family: inherit;
+    color: inherit;
+}
+
+p {
+    margin: 1rem 0;
+}
+
+@import "blocks/container";
+@import "blocks/logo";
+@import "blocks/btn";
+@import "blocks/social";
+@import "blocks/header";
+@import "blocks/nav";
+@import "blocks/intro";
+@import "blocks/about";
+@import "blocks/add-post";
+@import "blocks/section";
+@import "blocks/article";
+@import "blocks/services";
+@import "blocks/staff";
+@import "blocks/promo";
+@import "blocks/footer";

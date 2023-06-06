@@ -1,0 +1,105 @@
+/* Staff */
+.staff {
+    margin: 5rem 0;
+
+    &__inner {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-flow: dense;
+
+        @include media($container-br) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include media($tablet-br-2) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__item {
+        padding: 2.5rem 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include media($mobile-br) {
+            flex-direction: column;
+        }
+    }
+
+    &__photo {
+        position: relative;
+        width: 13rem;
+        height: 13rem;
+        overflow: hidden;
+
+        @include media($tablet-br-1) {
+            width: 11rem;
+            height: 11rem;
+        }
+
+        @include media($mobile-br) {
+            width: 18rem;
+            height: 18rem;
+        }
+    }
+
+    &__img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        transform: translate3d(-50%, -50%, 0);
+        
+    }
+
+    &__content {
+        padding-left: 4rem;
+
+        @include media($tablet-br-1) {
+            padding-left: 3rem;
+        }
+
+        @include media($mobile-br) {
+            padding-left: 0;
+            margin-top: 2rem;
+            text-align: center;
+        }
+    }
+
+    &__title {
+        margin-bottom: .5rem;
+        font-weight: 500;
+        line-height: 1.3;
+        font-size: 2.2rem;
+        color: $light-blue;
+
+    }
+
+    &__job {
+        font-size: 1.8rem;
+        margin-bottom: 2.5rem;
+        color: rgba($black, .8);
+
+        @include media($mobile-br) {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__email {
+        font-size: 1.6rem;
+        color: $light-blue;
+        font-weight: 400;
+        line-height: 1.2;
+        transition: color .2s ease;
+
+        &:hover {
+            color: $orange;
+        }
+    }
+
+}
