@@ -1,16 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Nav from './Nav';
 import Icons from './Icons';
-import MyInput from './UI/input/MyInput';
 
 const Header = () => {
-    const [value, setValue] = useState(''); //get value from search input
-
-    function searchValue(e) {
-        e.preventDefault()
-        console.log(value);
-        setValue('');
-    }
     return (
         <header className="header">
             <div className="container">
@@ -30,12 +22,6 @@ const Header = () => {
                             <h3 className="logo__title">Personal Lawyer</h3>
                         </div>
                         <div className="header__right">
-                            <form className="header__form" action="/" method="get">
-                                <MyInput type="text" placeholder="Поиск" value={value} onChange={event => setValue(event.target.value)}/>
-                                <button className="btn btn--search" type="button" onClick={searchValue}>
-                                    <Icons icon={{ id: 'search', nameClass: 'header__icon header__icon--search' }} />
-                                </button>
-                            </form>
                             <div className="header__item">
                                 <a className="header__link-icon" href="#">
                                     Войти
