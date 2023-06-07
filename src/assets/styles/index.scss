@@ -14,6 +14,10 @@ body {
     line-height: 1.5;
     color: $black;
 
+    &.no-scroll {
+        overflow: hidden;
+    }
+
 }
 
 
@@ -42,6 +46,7 @@ p {
 @import "blocks/container";
 @import "blocks/logo";
 @import "blocks/btn";
+@import "blocks/filter";
 @import "blocks/form";
 @import "blocks/social";
 @import "blocks/header";
@@ -53,5 +58,4 @@ p {
 @import "blocks/article";
 @import "blocks/services";
 @import "blocks/staff";
-@import "blocks/promo";
 @import "blocks/footer";

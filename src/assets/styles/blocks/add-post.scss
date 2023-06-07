@@ -1,39 +1,26 @@
 /* Add-Post */
 .add-post {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 5rem;
 
+    &__btn {
+        @include media($tablet-br-2) {
+            margin-bottom: 3rem;
+        }
+    }
+
     &__form {
-        margin-bottom: 5rem;
-        width: 100%;
-        max-width: 80rem;
+        width: 60vw;
+        display: block;
     }
 
     &__item {
         margin-bottom: 3rem;
     }
 
-    &__sort {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        padding-top: 3rem;
-        position: relative;
-
-        &::before {
-            content: "";
-            display: block;
-            height: 3px;
-            width: 100%;
-            background-color: $light-blue;
-            position: absolute;
-            top: 0;
-            right: 0;
-            left: 0;
-            z-index: 1;
-        }
+    @include media($tablet-br-2) {
+        flex-direction: column;
     }
 }

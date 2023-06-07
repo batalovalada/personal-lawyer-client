@@ -19,7 +19,6 @@
     &__item {
         padding: 2.5rem 2rem;
         display: flex;
-        justify-content: center;
         align-items: center;
 
         @include media($mobile-br) {
@@ -28,6 +27,7 @@
     }
 
     &__photo {
+        flex-shrink: 0;
         position: relative;
         width: 13rem;
         height: 13rem;
@@ -75,13 +75,13 @@
         margin-bottom: .5rem;
         font-weight: 500;
         line-height: 1.3;
-        font-size: 2.2rem;
+        font-size: 2rem;
         color: $light-blue;
 
     }
 
     &__job {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         margin-bottom: 2.5rem;
         color: rgba($black, .8);
 
