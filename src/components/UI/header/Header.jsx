@@ -1,6 +1,6 @@
 import React from 'react';
-import Nav from './Nav';
-import Icons from './Icons';
+import Nav from '../nav/Nav';
+import Icons from '../../Icons';
 
 const Header = () => {
     return (

@@ -1,32 +1,27 @@
 import React from 'react';
 import './assets/styles/App.scss';
-import Header from './components/Header';
-import Intro from './components/Intro';
-import About from './components/About';
-import Footer from './components/Footer';
-import Section from './components/Section';
-import Articles from './components/Articles';
-import Services from './components/Services';
-import Staff from './components/Staff';
-import Promo from './components/Promo';
+import { Route, Routes} from 'react-router-dom';
+import Layout from './tpl/layouts/Layout';
+import HomePage from './pages/HomePage';
+import AboutUsPage from './pages/AboutUs';
+import ServicesPage from './pages/ServicesPage';
+import ArticlesPage from './pages/ArticlesPage';
+import ContactsPage from './pages/ContactsPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
     <div className="App">
-        <Header />
-        <Intro title={'О нас'}/>
-        <About/>
-
-        <Section section={{ title: 'Title Title title', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi dicta soluta accusamus rerum voluptatem ab, odio pariatur. Perspiciatis aspernatur corporis quis, corrupti vero explicabo magnam voluptas. Dolores accusantium corrupti voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Eligendi dicta soluta accusamus rerum voluptatem ab, odio pariatur.Perspiciatis aspernatur corporis quis, corrupti vero explicabo magnam voluptas.Dolores accusantium corrupti voluptas.' }}/>
-        
-        <Articles/>
-
-        <Services/>
-
-        <Promo/>
-
-        <Staff/>
-        <Footer/>
+            <Routes>
+                <Route path="/" element={<Layout/>}>
+                    <Route index element={<HomePage />}/>
+                    <Route path="aboutus" element={<AboutUsPage />}/>
+                    <Route path="articles" element={<ArticlesPage />}/>
+                    <Route path="services" element={<ServicesPage />}/>
+                    <Route path="contacts" element={<ContactsPage />}/>
+                    <Route path="*" element={<NotFoundPage />} />
+                </Route>
+            </Routes>
     </div>
   );
 }

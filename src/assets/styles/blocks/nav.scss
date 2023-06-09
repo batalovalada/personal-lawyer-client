@@ -17,16 +17,9 @@
 
         transition: color .3s ease-in-out;
 
-        &:focus {
-            outline: none;
-            color: $light-blue;
-        }
-    }
-
-    &__item {
         padding: 1rem 2rem;
         position: relative;
-
+    
         &::after {
             content: "";
             display: block;
@@ -40,13 +33,18 @@
             transition: width .3s linear;
         }
 
-        &:hover {
-            > .nav__link {
-                color: $light-blue;
-            }
+        &:hover, &:focus {
+            color: $light-blue;
+        }
+
+        &.active {
+            color: $light-blue;
+
             &::after {
                 width: 100%;
             }
         }
+
     }
+
 }

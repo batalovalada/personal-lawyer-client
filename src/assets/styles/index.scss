@@ -37,6 +37,9 @@ a {
     text-decoration: none;
     font-family: inherit;
     color: inherit;
+    &:focus {
+        outline: none;
+    }
 }
 
 p {
@@ -59,3 +62,4 @@ p {
 @import "blocks/services";
 @import "blocks/staff";
 @import "blocks/footer";
+@import "blocks/error";

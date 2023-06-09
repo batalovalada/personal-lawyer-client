@@ -1,6 +1,7 @@
 import React from 'react';
-import Icons from './Icons';
-import Social from './Social';
+import { Link } from 'react-router-dom';
+import Icons from '../../Icons';
+import Social from '../../Social';
 
 const Footer = () => {
     const cities = [
@@ -14,11 +15,11 @@ const Footer = () => {
     ]
 
     const navLinks = [
-        { name: 'Главная', href: '#' },
-        { name: 'О нас', href: '#' },
-        { name: 'Услуги', href: '#' },
-        { name: 'Статьи', href: '#' },
-        { name: 'Контакты', href: '#' }
+        { name: 'Главная', to: '/'},
+        { name: 'О нас', to: '/aboutus' },
+        { name: 'Услуги', to: '/services' },
+        { name: 'Статьи', to: '/articles' },
+        { name: 'Контакты', to: '/contacts' }
     ]
 
     return (
@@ -34,26 +35,26 @@ const Footer = () => {
                                 </div>
                             </li>
                             <li className="footer__item">
-                                <a className="footer__link" href="#">Карта сайта</a>
+                                <Link className="footer__link" to="#">Карта сайта</Link>
                             </li>
                             <li className="footer__item">
-                                <a className="footer__link" href="#">Правовая информация</a>
+                                <Link className="footer__link" to="#">Правовая информация</Link>
                             </li>
                             <li className="footer__item">
-                                <a className="footer__link" href="#">Политика обработки персональных данных</a>
+                                <Link className="footer__link" to="#">Политика обработки персональных данных</Link>
                             </li>
                         </ul>
                         <ul className="footer__list">
                             {navLinks.map(navLink => 
                                 <li className="footer__item" key={navLink.name}>
-                                    <a className="footer__link" href={navLink.href}>{navLink.name}</a>
+                                    <Link className="footer__link" to={navLink.to}>{navLink.name}</Link>
                                 </li>
                             )}
                         </ul>
                         <ul className="footer__list">
                             {cities.map(city => 
                                 <li className="footer__item" key={city.name}>
-                                    <a className="footer__link" href={city.href}>{city.name}</a>
+                                    <Link className="footer__link" to={city.href}>{city.name}</Link>
                                 </li>
                             )}
                         </ul>

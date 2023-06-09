@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Intro = (props) => {
     return (
@@ -8,7 +9,7 @@ const Intro = (props) => {
                     <h1 className="intro__title">{props.title}</h1>
                     <ul className="intro__list">
                         <li className="intro__item">
-                            <a className="intro__link" href="#">Главная</a>
+                            <Link className="intro__link" to="/">Главная</Link>
                         </li>
                         <li className="intro__item">{props.title}</li>
                     </ul>
