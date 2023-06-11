@@ -47,6 +47,7 @@ p {
 }
 
 @import "blocks/container";
+@import "blocks/page";
 @import "blocks/logo";
 @import "blocks/btn";
 @import "blocks/filter";
@@ -61,5 +62,9 @@ p {
 @import "blocks/article";
 @import "blocks/services";
 @import "blocks/staff";
+@import "blocks/contacts";
+@import "blocks/reviews";
+@import "blocks/questions";
+@import "blocks/read-more";
 @import "blocks/footer";
 @import "blocks/error";

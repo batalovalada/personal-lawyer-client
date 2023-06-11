@@ -1,6 +1,26 @@
 .form {
-    &__search {
+    &-search {
         display: flex;
         align-items: flex-end;
     }
+
+    &-questions {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 80rem;
+        
+        &__item {
+            margin-bottom: 3rem;
+        }
+    }
+
+    &-add-post {
+        width: 60vw;
+        display: block;
+    
+        &__item {
+            margin-bottom: 3rem;
+        }
+    }
+
 }

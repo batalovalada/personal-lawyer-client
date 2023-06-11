@@ -4,7 +4,7 @@ import ArticlesItem from "./ArticlesItem";
 
 const ArticlesList = ({posts, title, remove}) => {
     if (!posts.length) {
-        return (<h2 className="article__sm-title">Статьи не найдены!</h2>)
+        return (<h2 className="error__sm-title">Статьи не найдены!</h2>)
     }
 
     return (

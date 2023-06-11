@@ -1,0 +1,97 @@
+/* Reviews */
+.reviews {
+    &__item {
+        display: flex;
+        padding: 3rem;
+        text-align: left;
+
+        @include media($tablet-br-1) {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    &__photo {
+        width: 40rem;
+        height: 30rem;
+        position: relative;
+        overflow: hidden;
+        flex-shrink: 0;
+
+        @include media($tablet-br-1) {
+            margin-bottom: 3rem;
+            width: 25rem;
+            height: 30rem;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        transform: translate3d(-50%, -50%, 0);
+
+        object-fit: cover;
+    }
+
+    &__content {
+        padding-left: 5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @include media($tablet-br-1) {
+            padding-left: 0;
+        }
+    }
+
+    &__name {
+        font-size: 3rem;
+        color: $light-blue;
+        font-weight: 600;
+        line-height: 1.3;
+        margin-bottom: 1.5rem;
+
+        @include media($tablet-br-1) {
+            margin-bottom: 1rem;
+        }
+
+        @include media($mobile-br) {
+            font-size: 2.4rem;
+        }
+    }
+
+    &__service {
+        font-size: 2.4rem;
+        font-weight: 500;
+        color: rgba($black, .8);
+        margin-bottom: 2rem;
+
+        @include media($tablet-br-1) {
+            margin-bottom: 1.5rem;
+        }
+
+        @include media($mobile-br) {
+            font-size: 2rem;
+        }
+    }
+
+    &__text {
+        font-size: 1.8rem;
+        font-weight: 400;
+        text-align: justify;
+
+        @include media($tablet-br-1) {
+            text-align: center;
+        }
+
+        @include media($mobile-br) {
+            font-size: 1.6rem;
+        }
+    }
+}

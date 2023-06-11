@@ -11,15 +11,6 @@
         }
     }
 
-    &__form {
-        width: 60vw;
-        display: block;
-    }
-
-    &__item {
-        margin-bottom: 3rem;
-    }
-
     @include media($tablet-br-2) {
         flex-direction: column;
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import MyButton from './UI/button/MyButton';
+import MyLink from './UI/link/MyLink';
 import Icons from './Icons';
 
 const AboutItem = (props) => {
@@ -12,7 +12,7 @@ const AboutItem = (props) => {
                 <h3 className="about__title">{props.item.title}</h3>
                 <div className="about__text">{props.item.text}</div>
             </div>
-            <MyButton type="button">Подробнее</MyButton>
+            <MyLink to={`/${props.item.id}`}>Подробнее</MyLink>
         </div>
     )
 }

@@ -1,0 +1,15 @@
+/* Questions */
+.questions {
+    &__title {
+        font-size: 2rem;
+        font-weight: 700;
+        text-align: center;
+        color: $light-blue;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+    
+        @include media($tablet-br-2) {
+            font-size: 1.8rem;
+        }
+    }
+}

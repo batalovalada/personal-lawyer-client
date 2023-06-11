@@ -5,7 +5,7 @@ import Articles from "../components/Articles";
 const ArticlesPage = () => {
     return (
         <div className="page">
-            <Intro title={'Статьи'} />
+            <Intro title='Статьи' />
             <Articles />
         </div>
     )

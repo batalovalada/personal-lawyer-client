@@ -5,7 +5,7 @@ import Services from "../components/Services";
 const ServicesPage = () => {
     return (
         <div className="page">
-            <Intro title={'Услуги'} />
+            <Intro title='Услуги' />
             <Services/>
         </div>
     )

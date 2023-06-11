@@ -14,7 +14,7 @@ const AddPostForm = ({create}) => {
     }
 
     function rigthTime(partTime) {
-        return `${partTime}`.length == 1 ? `0${partTime}` : `${partTime}`
+        return `${partTime}`.length === 1 ? `0${partTime}` : `${partTime}`
     }
 
     const [post, setPost] = useState({title: '', text: ''});
@@ -23,17 +23,17 @@ const AddPostForm = ({create}) => {
         e.preventDefault();
         let Time = new Date();
         Time = getDate(Time);
-        const newPost = {...post, date: Time, id: Date.now(), href: '#'};
+        const newPost = { ...post, date: Time, id: Date.now(), to: `/articles/${Date.now()}`};
         create(newPost);
         setPost({title: '', text: ''});
     }
 
     return (
-        <form className="add-post__form" action="/" method="post">
-            <div className="add-post__item">
+        <form className="form-add-post" action="/" method="post">
+            <div className="form-add-post__item">
                 <MyInput value={post.title} onChange={e => setPost({...post, title: e.target.value})} type="text" placeholder="Заголовок" id="add-post-title"/>
             </div>
-            <div className="add-post__item">
+            <div className="form-add-post__item">
                 <MyTextarea value={post.text} onChange={e => setPost({ ...post, text: e.target.value })} type="text" placeholder="Текст поста" id="add-post-text" rows="5"/>
             </div>
             <MyButton onClick={addNewPost} type="submit">Отправить</MyButton>
