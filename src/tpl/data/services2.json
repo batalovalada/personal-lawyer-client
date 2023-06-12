@@ -1,0 +1,38 @@
+[
+    {
+            "id": 27,
+            "icon": "about3",
+            "title": "Взыскание долгов",
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cumque repellat tempore?"
+    },
+    {
+            "id": 28,
+            "icon": "about4",
+            "title": "Личный адвокат",
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cumque repellat tempore?"
+    },
+    {
+            "id": 29,
+            "icon": "about2",
+            "title": "Юрист по недвижимости",
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cumque repellat tempore?"
+    },
+    {
+            "id": 291,
+            "icon": "about1",
+            "title": "Составление договоров",
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cumque repellat tempore?"
+    },
+    {
+            "id": 292,
+            "icon": "about4",
+            "title": "Представительство в суде",
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cumque repellat tempore?"
+    },
+    {
+            "id": 293,
+            "icon": "about2",
+            "title": "Страховой юрист",
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cumque repellat tempore?"
+    }
+]

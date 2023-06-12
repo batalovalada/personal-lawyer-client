@@ -1,6 +1,6 @@
 import React from "react";
-import Intro from "../components/Intro";
-import Services from "../components/Services";
+import Intro from "../Intro";
+import Services from "../Services";
 
 const ServicesPage = () => {
     return (

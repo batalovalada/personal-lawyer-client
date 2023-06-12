@@ -2,13 +2,13 @@ import React from 'react';
 import './assets/styles/App.scss';
 import { Route, Routes, Navigate} from 'react-router-dom';
 import Layout from './tpl/layouts/Layout';
-import HomePage from './pages/HomePage';
-import AboutUsPage from './pages/AboutUs';
-import ServicesPage from './pages/ServicesPage';
-import ArticlesPage from './pages/ArticlesPage';
-import ContactsPage from './pages/ContactsPage';
-import ReadMorePage from './pages/ReadMorePage';
-import NotFoundPage from './pages/NotFoundPage';
+import HomePage from './components/pages/HomePage';
+import AboutUsPage from './components/pages/AboutUs';
+import ServicesPage from './components/pages/ServicesPage';
+import ArticlesPage from './components/pages/ArticlesPage';
+import ContactsPage from './components/pages/ContactsPage';
+import ReadMorePage from './components/pages/ReadMorePage';
+import NotFoundPage from './components/pages/NotFoundPage';
 
 function App() {
   return (

@@ -1,0 +1,38 @@
+[
+    {
+        "id": 21,
+        "icon": "about1",
+        "title": "Корпоративное право",
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cumque repellat tempore?"
+    },
+    {
+        "id": 22,
+        "icon": "about4",
+        "title": "Уголовно-правовая защита бизнеса",
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cumque repellat tempore?"
+    },
+    {
+        "id": 23,
+        "icon": "about2",
+        "title": "Законопроектная работа",
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cumque repellat tempore?"
+    },
+    {
+        "id": 24,
+        "icon": "about3",
+        "title": "Правовая защита информации",
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cumque repellat tempore?"
+    },
+    {
+        "id": 25,
+        "icon": "about1",
+        "title": "Банковская и финансовая практика",
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cumque repellat tempore?"
+    },
+    {
+        "id": 26,
+        "icon": "about3",
+        "title": "Правовой мониторинг",
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cumque repellat tempore?"
+    }
+]

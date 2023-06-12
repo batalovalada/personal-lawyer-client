@@ -1,44 +1,16 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { usePosts } from "../hooks/usePosts";
+import { useFetching } from "../hooks/useFetching";
 import ArticlesList from "./ArticlesList";
 import AddPostForm from "./AddPostForm";
 import Filter from "./Filter";
 import MyModal from "./UI/modal/MyModal";
 import MyButton from "./UI/button/MyButton";
+import Loader from "./UI/loader/Loader";
 
 const Articles = () => {
     //==========================posts=================================
-    const [posts, setPosts] = useState([
-        {   id: 11,
-            title: 'Договор оказания услуг',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi dicta soluta accusamus rerum voluptatem ab, odio pariatur. Perspiciatis aspernatur corporis quis, corrupti vero explicabo magnam voluptas. Dolores accusantium corrupti voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Eligendi dicta soluta accusamus rerum voluptatem ab, odio pariatur.Perspiciatis aspernatur corporis quis, corrupti vero explicabo magnam voluptas.Dolores accusantium corrupti voluptas.',
-            date: ['2023', '01', '27', '09', '37']},
-
-        {   id: 12,
-            title: 'Банкротство физических лиц',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi dicta soluta accusamus rerum voluptatem ab, odio pariatur. Perspiciatis aspernatur corporis quis, corrupti vero explicabo magnam voluptas. Dolores accusantium corrupti voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Eligendi dicta soluta accusamus rerum voluptatem ab, odio pariatur.Perspiciatis aspernatur corporis quis, corrupti vero explicabo magnam voluptas.Dolores accusantium corrupti voluptas.',
-            date: ['2020', '05', '09', '13', '56'] },
-
-        {   id: 13,
-            title: 'Оспаривание завещания',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi dicta soluta accusamus rerum voluptatem ab, odio pariatur. Perspiciatis aspernatur corporis quis, corrupti vero explicabo magnam voluptas. Dolores accusantium corrupti voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Eligendi dicta soluta accusamus rerum voluptatem ab, odio pariatur.Perspiciatis aspernatur corporis quis, corrupti vero explicabo magnam voluptas.Dolores accusantium corrupti voluptas.',
-            date: ['2022', '10', '17', '10', '20'] },
-
-        {   id: 14,
-            title: 'Юридические услуги',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi dicta soluta accusamus rerum voluptatem ab, odio pariatur. Perspiciatis aspernatur corporis quis, corrupti vero explicabo magnam voluptas. Dolores accusantium corrupti voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Eligendi dicta soluta accusamus rerum voluptatem ab, odio pariatur.Perspiciatis aspernatur corporis quis, corrupti vero explicabo magnam voluptas.Dolores accusantium corrupti voluptas.',
-            date: ['2023', '05', '18', '16', '19'] },
-
-        {   id: 15,
-            title: 'Возврат денег за услуги',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi dicta soluta accusamus rerum voluptatem ab, odio pariatur. Perspiciatis aspernatur corporis quis, corrupti vero explicabo magnam voluptas. Dolores accusantium corrupti voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Eligendi dicta soluta accusamus rerum voluptatem ab, odio pariatur.Perspiciatis aspernatur corporis quis, corrupti vero explicabo magnam voluptas.Dolores accusantium corrupti voluptas.',
-            date: ['2021', '04', '22', '16', '40']},
-
-        {   id: 16,
-            title: 'Раздел долевой собственности',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi dicta soluta accusamus rerum voluptatem ab, odio pariatur. Perspiciatis aspernatur corporis quis, corrupti vero explicabo magnam voluptas. Dolores accusantium corrupti voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Eligendi dicta soluta accusamus rerum voluptatem ab, odio pariatur.Perspiciatis aspernatur corporis quis, corrupti vero explicabo magnam voluptas.Dolores accusantium corrupti voluptas.',
-            date: ['2021', '11', '12', '19', '26'] }
-    ])
+    const [posts, setPosts] = useState([])
 
     //======================modal===================================
     const [modal, setModal] = useState(false)
@@ -46,16 +18,51 @@ const Articles = () => {
     //====================select sort================================
     const [filter, setFilter] = useState({ sort: '', query: '' });
     const sortedSearchedPosts = usePosts(posts, filter.sort, filter.query);
+    const [fetchPosts, isPostsLoading, postError] = useFetching(async () => {
+        await fetch('/posts')
+            .then(response => response.json())
+            .then(data => setPosts(data))
+            .catch(e => console.log(e.message))
+
+    })
+
+    useEffect(() => {
+        fetchPosts()
+    }, [])
 
     //create and remove article
     const createPost = (newPost) => {
         setPosts([...posts, newPost]);
         setModal(false);
         document.body.classList.remove('no-scroll');
+        postArticleServer(newPost)
     }
 
     const removePost = (post) => {
         setPosts(posts.filter(item => item.id !== post.id));
+        deleteArticleServer(post.id);
+    }
+
+    //method post and delete
+    async function postArticleServer(newPost) {
+        await fetch('/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(newPost)
+        })
+            .catch(err => console.log(err))
+    }
+
+    async function deleteArticleServer(postId) {
+        await fetch(`/posts?id=${postId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            }
+        })
+            .catch(err => console.log(err))
     }
 
 
@@ -75,7 +82,20 @@ const Articles = () => {
                             { value: 'date', name: 'По дате добавления' }
                         ]}/>
                     </div>
-                    <ArticlesList remove={removePost} posts={sortedSearchedPosts} title='Все статьи' />
+                    {
+                        postError &&
+                        <div className="error">
+                            <h1 className="error__title">{`Произошла ошибка! ${postError}`}</h1>
+                        </div>
+                    }
+                    {
+                        isPostsLoading
+                        ? 
+                        <div className="error">
+                            <Loader/>
+                        </div>
+                        : <ArticlesList remove={removePost} posts={sortedSearchedPosts} title='Все статьи' />
+                    }
                 </div>
             </div>
         </div>

@@ -1,8 +1,8 @@
 import React from "react";
-import Intro from "../components/Intro";
-import Staff from "../components/Staff";
-import Section from '../components/Section';
-import QuestionsForm from "../components/QuestionsForm";
+import Intro from "../Intro";
+import Staff from "../Staff";
+import Section from '../Section';
+import QuestionsForm from "../QuestionsForm";
 
 const AboutUsPage = () => {
     return (

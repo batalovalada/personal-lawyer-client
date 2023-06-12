@@ -1,7 +1,7 @@
 import React from "react";
-import Intro from "../components/Intro";
-import Contacts from "../components/Contacts";
-import QuestionsForm from "../components/QuestionsForm";
+import Intro from "../Intro";
+import Contacts from "../Contacts";
+import QuestionsForm from "../QuestionsForm";
 
 const ContactsPage = () => {
     return (

@@ -1,12 +1,12 @@
 import React from "react";
-import HomeIntro from "../components/HomeIntro";
-import About from "../components/About";
-import Promo from "../components/Promo";
-import Section from "../components/Section";
-import ReviewsItem from "../components/ReviewsItem";
-import ServicesItem from "../components/ServicesItem";
-import StaffItem from "../components/StaffItem";
-import Contacts from "../components/Contacts";
+import HomeIntro from "../HomeIntro";
+import About from "../About";
+import Promo from "../Promo";
+import Section from "../Section";
+import ReviewsItem from "../ReviewsItem";
+import ServicesItem from "../ServicesItem";
+import StaffItem from "../StaffItem";
+import Contacts from "../Contacts";
 
 const HomePage = () => {
     const homeServices = [

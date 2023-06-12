@@ -23,7 +23,7 @@ const AddPostForm = ({create}) => {
         e.preventDefault();
         let Time = new Date();
         Time = getDate(Time);
-        const newPost = { ...post, date: Time, id: Date.now(), to: `/articles/${Date.now()}`};
+        const newPost = { id: Date.now(), ...post, date: Time};
         create(newPost);
         setPost({title: '', text: ''});
     }
