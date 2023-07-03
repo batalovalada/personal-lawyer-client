@@ -1,8 +1,9 @@
 /* Reviews */
 .reviews {
     &__item {
+        width: 100%;
         display: flex;
-        padding: 3rem;
+        padding: 2rem;
         text-align: left;
 
         @include media($tablet-br-1) {

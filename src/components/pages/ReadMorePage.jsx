@@ -8,7 +8,7 @@ import Loader from "../UI/loader/Loader";
 
 const ReadMorePage = () => {
     const {id} = useParams();
-    const [object, setObject] = useState('');
+    const [object, setObject] = useState({});
 
     //fetch data
     const [fetchPost, isPostLoading, postError] = useFetching(async () => {
