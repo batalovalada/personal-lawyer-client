@@ -14,6 +14,7 @@ import introImg3 from '../../assets/images/intro/3.jpg';
 import introImg4 from '../../assets/images/intro/4.jpg';
 
 const HomePage = () => {
+    //content===============================================================================
     const homeIntro = [
         {   
             image: introImg1,
@@ -117,7 +118,7 @@ const HomePage = () => {
         }
     ]
 
-    //sliders
+    //sliders======================================================================================
     const introSettings ={
         className: "slick-intro",
         dots: true,

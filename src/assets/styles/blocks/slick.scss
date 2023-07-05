@@ -59,11 +59,19 @@
     .slick-slide:nth-child(odd) {
         .intro__inner--home {
             margin-left: auto;
+            @include media($tablet-br-1) {
+                margin-right: auto;
+            }
         }
     }
     .slick-slide:nth-child(even) {
         .intro__inner--home {
             margin-left: 0;
+
+            @include media($tablet-br-1) {
+                margin-right: auto;
+                margin-left: auto;
+            }
         }
     }
 

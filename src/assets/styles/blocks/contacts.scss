@@ -1,5 +1,9 @@
 /* Contacts */
 .contacts {
+
+    background: #060709 url(../../images/intro/1.jpg) center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
     
     &__main {
         display: grid;
@@ -22,7 +26,7 @@
     &__inf {
         padding: 3rem 2rem;
         color: $white;
-        background-color: rgba($black, .9);
+        background-color: rgba($black, .6);
     }
 
     &__inf-inner {

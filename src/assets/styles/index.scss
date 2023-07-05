@@ -16,6 +16,11 @@ body {
 
     &.no-scroll {
         overflow: hidden;
+
+    }
+
+    &.show-nav {
+        overflow: hidden;
     }
 
 }

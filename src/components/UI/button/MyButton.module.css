@@ -21,3 +21,13 @@
     color: #fff;
     outline: 0;
 }
+
+.myBtn:disabled, .myBtn[disabled] {
+    opacity: .7;
+}
+
+.myBtn:disabled:hover, .myBtn[disabled]:hover {
+    background-color: rgba(225, 225, 225, .7);
+    color: #000;
+    cursor: not-allowed;
+}

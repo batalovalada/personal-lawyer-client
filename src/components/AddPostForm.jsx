@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { useInput } from "../hooks/useValidation";
 import MyInput from "./UI/input/MyInput";
 import MyTextarea from "./UI/textarea/MyTextarea";
 import MyButton from "./UI/button/MyButton";
@@ -28,15 +29,47 @@ const AddPostForm = ({create}) => {
         setPost({title: '', text: ''});
     }
 
+    //validate====================
+    const title = useInput('', {isEmpty: true});
+    const text = useInput('', {isEmpty: true});
+
+
     return (
         <form className="form-add-post" action="/" method="post">
             <div className="form-add-post__item">
-                <MyInput value={post.title} onChange={e => setPost({...post, title: e.target.value})} type="text" placeholder="Заголовок" id="add-post-title"/>
+                <MyInput 
+                    value={post.title}
+                    onChange={e => { 
+                        setPost({ ...post, title: e.target.value });
+                        title.onChange(e)
+                    }}
+                    onBlur={() => title.onBlur()} 
+                    type="text"
+                    placeholder="Заголовок"
+                    id="add-post-title"
+                />
+                <div className="form__labels">
+                    {(title.isDirty && title.isEmpty) && <label className="form__err-label">Поле не заполнено!</label>}
+                </div>
             </div>
             <div className="form-add-post__item">
-                <MyTextarea value={post.text} onChange={e => setPost({ ...post, text: e.target.value })} type="text" placeholder="Текст поста" id="add-post-text" rows="5"/>
+                <MyTextarea
+                    value={post.text}
+                    onChange={e => {
+                        setPost({ ...post, text: e.target.value });
+                        text.onChange(e)
+                    }}
+                    onBlur={() => text.onBlur()}
+                    type="text"
+                    placeholder="Текст поста"
+                    id="add-post-text"
+                    rows="5"
+                    />
+                <div className="form__labels">
+                    {(text.isDirty && text.isEmpty) && <label className="form__err-label">Поле не заполнено!</label>}
+                </div>
             </div>
-            <MyButton onClick={addNewPost} type="submit">Отправить</MyButton>
+            <MyButton disabled={!title.inputValid || !text.inputValid} onClick={addNewPost} type="submit">Отправить</MyButton>
         </form>
     )
 }

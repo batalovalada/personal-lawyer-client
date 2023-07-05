@@ -18,7 +18,6 @@
         height: 90vh;
         min-height: 55rem;
         background: none;
-        background-size: cover;
 
         @include media($tablet-br-1) {
             height: auto;
