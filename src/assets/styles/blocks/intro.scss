@@ -66,14 +66,14 @@
             @include media($tablet-br-1) {
                 font-size: 3rem;
             }
+        }
 
-            @include media($tablet-br-2) {
-                font-size: 2.6rem;
-            }
+        @include media($tablet-br-2) {
+            font-size: 2.6rem;
+        }
 
-            @include media($mobile-br) {
-                font-size: 2rem;
-            }
+        @include media($mobile-br) {
+            font-size: 2rem;
         }
     }
 

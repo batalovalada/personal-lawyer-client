@@ -22,7 +22,6 @@ const Articles = () => {
         await fetch('/posts')
             .then(response => response.json())
             .then(data => setPosts(data))
-            .catch(e => console.log(e.message))
 
     })
 
@@ -83,18 +82,18 @@ const Articles = () => {
                         ]}/>
                     </div>
                     {
-                        postError &&
-                        <div className="error">
-                            <h1 className="error__title">{`Произошла ошибка! ${postError}`}</h1>
-                        </div>
-                    }
-                    {
-                        isPostsLoading
-                        ? 
-                        <div className="error">
-                            <Loader/>
-                        </div>
-                        : <ArticlesList remove={removePost} posts={sortedSearchedPosts} title='Все статьи' />
+                        postError 
+                        ?
+                            <div className="error">
+                                <h1 className="error__title">{`Произошла ошибка! ${postError}`}</h1>
+                            </div>
+                        :
+                            isPostsLoading
+                            ? 
+                            <div className="error">
+                                <Loader/>
+                            </div>
+                            : <ArticlesList remove={removePost} posts={sortedSearchedPosts} title='Все статьи' />
                     }
                 </div>
             </div>

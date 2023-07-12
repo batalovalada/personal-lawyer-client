@@ -12,7 +12,7 @@ const AboutItem = (props) => {
                 <h3 className="about__title">{props.item.title}</h3>
                 <div className="about__text">{props.item.text}</div>
             </div>
-            <MyLink to={`/${props.item.id}`}>Подробнее</MyLink>
+            <MyLink to={`/about/${props.item.id}`}>Подробнее</MyLink>
         </div>
     )
 }

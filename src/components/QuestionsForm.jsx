@@ -6,7 +6,8 @@ import { useInput } from "../hooks/useValidation";
 
 const QuestionsForm = ({title}) => {
     //validation
-    const name = useInput('', {isEmpty: true, minLength: 2});
+    const MIN_NAME = 5;
+    const name = useInput('', { isEmpty: true, minLength: MIN_NAME});
     const email = useInput('', { isEmpty: true, isEmail: true});
     const message = useInput('', { isEmpty: true});
 
@@ -16,10 +17,10 @@ const QuestionsForm = ({title}) => {
             <h3 className="questions__title">{title}</h3>
             <form className="form-questions" action="/" method="post">
                 <div className="form-questions__item">
-                    <MyInput onBlur={() => name.onBlur()} onChange={e => name.onChange(e)} value={name.value} type="text" placeholder="Имя" />
+                    <MyInput onBlur={() => name.onBlur()} onChange={e => name.onChange(e)} value={name.value} type="text" placeholder="Имя Фамилия" />
                     <div className="form__labels">
                         {(name.isDirty && name.isEmpty) && <label className="form__err-label">Поле не заполнено!</label>}
-                        {(name.isDirty && name.minLengthErr) && <label className="form__err-label">Требуется не менее 2 символов</label>}
+                        {(name.isDirty && name.minLengthErr) && <label className="form__err-label">{`Требуется не менее ${MIN_NAME} символов!`}</label>}
                     </div>
                 </div>
                 <div className="form-questions__item">

@@ -1,14 +1,25 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../context';
 import Nav from '../nav/Nav';
 import Icons from '../../Icons';
+import MyModal from '../modal/MyModal';
+import SignInForm from '../../SignInForm';
 
 const Header = () => {
+    //======================modal===================================
+    const [modal, setModal] = useState(false);
+
+    //burger menu
     const [menuActive, setMenuActive] = useState(false);
 
     //remove scroll when menu is active
     function bodyScroll() {
         document.body.classList.toggle('show-nav')
     }
+
+    //authorization link
+    const { isAuth, setIsAuth } = useContext(AuthContext);
 
     return (
         <header className="header">
@@ -29,10 +40,26 @@ const Header = () => {
                         </div>
                         <div className="header__right">
                             <div className="header__item">
-                                <a className="header__link-icon" href="#">
-                                    Войти
-                                    <Icons icon={{ id: 'sign-in', nameClass: 'header__icon' }} />
-                                </a>
+                                {isAuth
+                                ?
+                                    <Link className="header__link-icon header__link-icon--baseline" to="profile">
+                                        Профиль
+                                        <Icons icon={{ id: 'profile', nameClass: 'header__icon header__icon--small' }} />
+                                    </Link>
+                                :
+                                <>
+                                    <button className="header__link-icon" type="button" onClick={() => setModal(true)}>
+                                        Войти
+                                        <Icons icon={{ id: 'sign-in', nameClass: 'header__icon' }} />
+                                    </button>
+                                    <MyModal active={modal} setActive={setModal}>
+                                        <div className="form-sign__modal">
+                                            <h3 className="form-sign__modal-title">Вход</h3>
+                                            <SignInForm modal={true} active={modal} setActive={setModal}/>
+                                        </div>
+                                    </MyModal>
+                                </>}
+                                
                             </div>
                             <div className="header__item">
                                 <button className={menuActive ? 'header__burger active' : 'header__burger'}

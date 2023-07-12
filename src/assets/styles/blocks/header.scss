@@ -169,11 +169,15 @@
     }
 
     &__link, &__link-icon {
+        padding: 0;
+        border: 0;
+        cursor: pointer;
+        background: none;
         font-size: 1.6rem;
         font-weight: 500;
         line-height: 1.2;
-        font-family: inherit;
-        color: inherit;
+        font-family: $font-text;
+        color: $white;
 
         transition: color .2s ease-in-out;
 
@@ -197,6 +201,10 @@
     &__link-icon {
         display: flex;
         align-items: flex-end;
+
+        &--baseline {
+            align-items: baseline;
+        }
     }
 
     &__icon {
@@ -207,6 +215,11 @@
         margin-left: 0.5rem;
 
         transition: fill .2s ease-in-out;
+
+        &--small {
+            height: 1.6rem;
+            width: 1.6rem;
+        }
 
         @include media($mobile-br) {
             height: 1.5rem;

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useFetching } from "../../hooks/useFetching";
 import Intro from "../Intro";
 import MyButton from "../UI/button/MyButton";
@@ -40,12 +40,15 @@ const ReadMorePage = () => {
     return (
         <div className="page">
             {
-                postError &&
+                postError 
+            ?
                 <div className="error">
-                    <h1 className="error__title">{`Произошла ошибка! ${postError}`}</h1>
+                    <div className="container">
+                        <h1 className="error__title">{`Страница не найдена! ${postError}`}</h1>
+                        <Link className="error__link" to="/">перейти на главную</Link>
+                    </div>
                 </div>
-            }
-            {
+            :
                 isPostLoading
                 ? 
                     <div className="error">
