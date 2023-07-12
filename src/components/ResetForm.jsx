@@ -9,7 +9,7 @@ const ResetForm = () => {
 
     //navigate after authorization
     const navigate = useNavigate();
-    const goSignIn = () => navigate('/sign-in');
+    const goSignIn = () => navigate('/sign-in', { replace: true });
 
     return (
         <form className="form-sign" action="/" method="post">

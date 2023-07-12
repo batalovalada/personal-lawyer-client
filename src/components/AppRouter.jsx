@@ -5,9 +5,19 @@ import { AuthContext } from "../context";
 import { privateRoutes, publicRoutes } from "../router/routes";
 import Layout from '../tpl/layouts/Layout';
 import HomePage from './pages/HomePage';
+import Loader from "./UI/loader/Loader";
 
 const AppRouter = () => {
-    const {isAuth, setIsAuth} = useContext(AuthContext);
+    const {isAuth, isLoading} = useContext(AuthContext);
+
+    if(isLoading) {
+        return (
+            <div className="error">
+                <Loader />
+            </div>
+        )
+    }
+
     return (
         isAuth 
             ?

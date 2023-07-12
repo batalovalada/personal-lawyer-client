@@ -19,7 +19,7 @@ const Header = () => {
     }
 
     //authorization link
-    const { isAuth, setIsAuth } = useContext(AuthContext);
+    const { isAuth} = useContext(AuthContext);
 
     return (
         <header className="header">

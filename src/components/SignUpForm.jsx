@@ -14,17 +14,18 @@ const SignUpForm = () => {
     const password2 = useInput('', { isEmpty: true, minLength: MIN_PASSWORD });
 
     //authorization
-    const { isAuth, setIsAuth } = useContext(AuthContext);
+    const { setIsAuth } = useContext(AuthContext);
 
     const login = e => {
         e.preventDefault();
         setIsAuth(true);
+        localStorage.setItem('auth', 'true');
     }
 
     //navigate after authorization
     const navigate = useNavigate();
 
-    const goHome = () => navigate('/');
+    const goHome = () => navigate('/', {replace: true});
 
     return (
         <form className="form-sign" action="/" method="post" onSubmit={login}>

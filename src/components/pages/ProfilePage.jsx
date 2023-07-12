@@ -15,7 +15,12 @@ const ProfilePage = () => {
     const password2 = useInput('', { isEmpty: true, minLength: MIN_PASSWORD });
 
     //authorization
-    const { isAuth, setIsAuth } = useContext(AuthContext);
+    const { setIsAuth } = useContext(AuthContext);
+
+    const logout = () => {
+        setIsAuth(false);
+        localStorage.removeItem('auth');
+    }
 
     return (
         <div className="page">
@@ -64,7 +69,7 @@ const ProfilePage = () => {
                                 </div>
                                 <div className="form-profile__btns">
                                     <MyButton disabled={!name.inputValid || !email.inputValid || !password1.inputValid || !password2.inputValid} type="submit">Отправить</MyButton>
-                                    <Link className="form-profile__link" to="/sign-in" onClick={() => setIsAuth(false)}>Выйти</Link>
+                                    <Link className="form-profile__link" to="/sign-in" onClick={logout}>Выйти</Link>
                                 </div>
                             </div> {/* ./form-profile__main */}
                         </form>
