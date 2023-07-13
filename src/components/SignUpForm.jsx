@@ -6,12 +6,13 @@ import MyButton from "./UI/button/MyButton";
 import { Link, useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
+    //validation
     const MIN_NAME = 5;
     const MIN_PASSWORD = 8;
     const name = useInput('', { isEmpty: true, minLength: MIN_NAME})
     const email = useInput('', { isEmpty: true, isEmail: true });
-    const password1 = useInput('', { isEmpty: true, minLength: MIN_PASSWORD });
-    const password2 = useInput('', { isEmpty: true, minLength: MIN_PASSWORD });
+    const password1 = useInput('', { isEmpty: true, minLength: MIN_PASSWORD});
+    const password2 = useInput('', { isEmpty: true, minLength: MIN_PASSWORD, checkPassword: password1.value});
 
     //authorization
     const { setIsAuth } = useContext(AuthContext);
@@ -44,17 +45,34 @@ const SignUpForm = () => {
                 </div>
             </div>
             <div className="form-sign__item">
-                <MyInput onBlur={() => password1.onBlur()} onChange={e => password1.onChange(e)} value={password1.value} type="password" placeholder="Пароль" />
+                <MyInput
+                    onBlur={() => password1.onBlur()}
+                    onChange={e => {
+                        password1.onChange(e);
+                    }} 
+                    value={password1.value} 
+                    type="password" 
+                    placeholder="Пароль" 
+                />
                 <div className="form__labels">
                     {(password1.isDirty && password1.isEmpty) && <label className="form__err-label">Поле не заполнено!</label>}
                     {(password1.isDirty && password1.minLengthErr) && <label className="form__err-label">{`Требуется не менее ${MIN_PASSWORD} символов!`}</label>}
                 </div>
             </div>
             <div className="form-sign__item">
-                <MyInput onBlur={() => password2.onBlur()} onChange={e => password2.onChange(e)} value={password2.value} type="password" placeholder="Подтвердите пароль" />
+                <MyInput 
+                    onBlur={() => password2.onBlur()}
+                    onChange={e => {
+                        password2.onChange(e);
+                    }} 
+                    value={password2.value} 
+                    type="password" 
+                    placeholder="Подтвердите пароль" 
+                />
                 <div className="form__labels">
                     {(password2.isDirty && password2.isEmpty) && <label className="form__err-label">Подтвердите пароль!</label>}
                     {(password2.isDirty && password2.minLengthErr) && <label className="form__err-label">{`Требуется не менее ${MIN_PASSWORD} символов!`}</label>}
+                    {(password2.isDirty && password2.passwordError) && <label className="form__err-label">Неверный пароль!</label>}
                 </div>
             </div>
             <div className="form-sign__btns">

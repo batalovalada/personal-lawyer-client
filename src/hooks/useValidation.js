@@ -4,6 +4,7 @@ export const useValidation = (value, validations) => {
     const [isEmpty, setIsEmpty] = useState(true);
     const [minLengthErr, setMinLengthErr] = useState(false);
     const [emailError, setEmailError] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
     const [inputValid, setInputValid] = useState(false);
 
     useEffect(() => {
@@ -19,6 +20,9 @@ export const useValidation = (value, validations) => {
                     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
                     re.test(String(value).toLowerCase()) ? setEmailError(false) : setEmailError(true);
                     break;
+                case 'checkPassword':
+                    value !== validations[validation] ? setPasswordError(true) : setPasswordError(false);
+                    break;
                 default: 
                     break;
             }
@@ -26,18 +30,19 @@ export const useValidation = (value, validations) => {
     }, [value]);
 
     useEffect(() => {
-        if (isEmpty || minLengthErr || emailError) {
+        if (isEmpty || minLengthErr || emailError || passwordError) {
             setInputValid(false);
         } else {
             setInputValid(true);
         }
 
-    }, [isEmpty, minLengthErr, emailError])
+    }, [isEmpty, minLengthErr, emailError, passwordError])
 
     return {
         isEmpty,
         minLengthErr,
         emailError,
+        passwordError,
         inputValid
     }
 }

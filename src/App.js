@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { StrictMode } from 'react';
 import './assets/styles/App.scss';
 import { AuthContext } from './context';
 import { BrowserRouter } from 'react-router-dom';
@@ -16,14 +17,15 @@ function App() {
     }, [])
 
     return (
-        <AuthContext.Provider value={{ isAuth, setIsAuth, isLoading }}>
-            <BrowserRouter>
-                <div className="App">
-                    <AppRouter />
-                </div>
-            </BrowserRouter>
-        </AuthContext.Provider>
-
+        <StrictMode> 
+            <AuthContext.Provider value={{ isAuth, setIsAuth, isLoading }}>
+                <BrowserRouter>
+                    <div className="App">
+                        <AppRouter />
+                    </div>
+                </BrowserRouter>
+            </AuthContext.Provider>
+        </StrictMode>
     );
 }
 
