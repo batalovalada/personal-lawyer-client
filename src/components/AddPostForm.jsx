@@ -36,7 +36,7 @@ const AddPostForm = ({create}) => {
 
     return (
         <form className="form-add-post" action="/" method="post">
-            <div className="form-add-post__item">
+            <div className="form__item">
                 <MyInput 
                     value={post.title}
                     onChange={e => { 
@@ -52,7 +52,7 @@ const AddPostForm = ({create}) => {
                     {(title.isDirty && title.isEmpty) && <label className="form__err-label">Поле не заполнено!</label>}
                 </div>
             </div>
-            <div className="form-add-post__item">
+            <div className="form__item">
                 <MyTextarea
                     value={post.text}
                     onChange={e => {

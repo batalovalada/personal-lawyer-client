@@ -13,7 +13,7 @@ const ResetForm = () => {
 
     return (
         <form className="form-sign" action="/" method="post">
-            <div className="form-sign__item">
+            <div className="form__item">
                 <MyInput onBlur={() => email.onBlur()} onChange={e => email.onChange(e)} value={email.value} type="email" placeholder="Email" />
                 <div className="form__labels">
                     {(email.isDirty && email.isEmpty) && <label className="form__err-label">Поле не заполнено!</label>}

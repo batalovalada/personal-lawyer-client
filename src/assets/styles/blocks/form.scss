@@ -25,38 +25,36 @@
         }
     }
 
+    &__item {
+        margin-bottom: 3.5rem;
+        position: relative;
+    
+        @include media($tablet-br-2) {
+            margin-bottom: 2rem;
+        }
+    }
+
+    //search form
+
     &-search {
         display: flex;
         align-items: flex-end;
     }
+
+    //questions form
 
     &-questions {
         margin: 0 auto;
         width: 100%;
         max-width: 80rem;
         
-        &__item {
-            margin-bottom: 3.5rem;
-            position: relative;
-
-            @include media($tablet-br-2) {
-                margin-bottom: 2rem;
-            }
-        }
     }
+
+    //add post form
 
     &-add-post {
         width: 67rem;
     
-        &__item {
-            margin-bottom: 4rem;
-            position: relative;
-
-            @include media($tablet-br-2) {
-                margin-bottom: 2rem;
-            }
-        }
-
         @include media($tablet-br-2) {
             width: 32rem;
         }
@@ -65,6 +63,8 @@
             width: 20rem;
         }
     }
+
+    //sign form in modal
 
     &-sign__modal {
         width: 40rem;
@@ -91,19 +91,12 @@
         }
     }
 
+    //sign form
+
     &-sign {
         margin: 4rem auto;
         width: 100%;
         max-width: 70rem;
-
-        &__item {
-            margin-bottom: 4rem;
-            position: relative;
-
-            @include media($tablet-br-2) {
-                margin-bottom: 2.5rem;
-            }
-        }
 
         &__btns {
             display: flex;
@@ -120,11 +113,17 @@
         &__link {
             color: $light-blue;
 
+            &--ml {
+                margin-left: 0.5rem;
+            }
+
             &:hover {
                 text-decoration: underline;
             }
         }
     }
+
+    //profile form
 
     &-profile {
         display: flex;
@@ -201,14 +200,28 @@
             }
         }
 
-        &__item {
-            margin-bottom: 3rem;
-            position: relative;
+    }
 
-            @include media($tablet-br-2) {
-                margin-bottom: 2.5rem;
-            }
+    //order call form in modal
+    &-order__modal {
+        width: 40rem;
+
+        @include media($tablet-br-2) {
+            width: 32rem;
+        }
+    
+        @include media($mobile-br) {
+            width: 20rem;
         }
     }
+
+    //order call form
+    &-order {
+        &__btn {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
 
 }

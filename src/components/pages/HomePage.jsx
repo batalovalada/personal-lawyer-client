@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
+import MyModal from "../UI/modal/MyModal";
+import OrderForm from "../OrderForm";
 import HomeIntro from "../HomeIntro";
 import About from "../About";
 import Promo from "../Promo";
@@ -160,13 +162,21 @@ const HomePage = () => {
         ]
     };
 
+    //======================modal===================================
+    const [modal, setModal] = useState(false);
+
     return (
         <div className="page">
             <Slider {...introSettings}>
                 {homeIntro.map(item => 
-                <HomeIntro intro={item} key={item.title}/>
+                <HomeIntro intro={item} setModal={setModal} key={item.title}/>
                 )}
             </Slider>
+            <MyModal active={modal} setActive={setModal}>
+                <div className="form-order__modal">
+                    <OrderForm modal={true} setActive={setModal} />
+                </div>
+            </MyModal>
             
             <About/>
             <Section section={{ title: "Качественные правовые услуги", content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi dicta soluta accusamus rerum voluptatem ab, odio pariatur. Perspiciatis aspernatur corporis quis, corrupti vero explicabo magnam voluptas. Dolores accusantium corrupti voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Eligendi dicta soluta accusamus rerum voluptatem ab, odio pariatur.Perspiciatis aspernatur corporis quis, corrupti vero explicabo magnam voluptas.Dolores accusantium corrupti voluptas."}}/>

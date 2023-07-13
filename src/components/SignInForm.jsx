@@ -29,19 +29,19 @@ const SignInForm = (props) => {
 
     return (
         <form className="form-sign" action="/" method="post" onSubmit={login}>
-            <div className="form-sign__item">
+            <div className="form__item">
                 <MyInput onBlur={() => email.onBlur()} onChange={e => email.onChange(e)} value={email.value} type="email" placeholder="Email" />
                 <div className="form__labels">
                     {(email.isDirty && email.isEmpty) && <label className="form__err-label">Поле не заполнено!</label>}
                     {(email.isDirty && email.emailError) && <label className="form__err-label">Email введён некорректно!</label>}
                 </div>
             </div>
-            <div className="form-sign__item">
+            <div className="form__item">
                 <MyInput onBlur={() => password.onBlur()} onChange={e => password.onChange(e)} value={password.value} type="password" placeholder="Пароль" />
                 <div className="form__labels">
                     {(password.isDirty && password.isEmpty) && <label className="form__err-label">Поле не заполнено!</label>}
                 </div>
-                <Link className="form-sign__link" to="/reset" onClick={
+                <Link className="form-sign__link form-sign__link--ml" to="/reset" onClick={
                     () => {
                         if (props.modal === true) {
                             props.setActive(false);

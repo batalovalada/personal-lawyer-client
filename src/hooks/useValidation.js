@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 export const useValidation = (value, validations) => {
     const [isEmpty, setIsEmpty] = useState(true);
     const [minLengthErr, setMinLengthErr] = useState(false);
+    const [maxLengthErr, setMaxLengthErr] = useState(false);
     const [emailError, setEmailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
     const [inputValid, setInputValid] = useState(false);
@@ -12,6 +13,9 @@ export const useValidation = (value, validations) => {
             switch (validation) {
                 case 'minLength':
                     value.length < validations[validation] ? setMinLengthErr(true) : setMinLengthErr(false);
+                    break;
+                case 'maxLength':
+                    value.length > validations[validation] ? setMaxLengthErr(true) : setMaxLengthErr(false);
                     break;
                 case 'isEmpty': 
                     value ? setIsEmpty(false) : setIsEmpty(true);
@@ -30,17 +34,18 @@ export const useValidation = (value, validations) => {
     }, [value]);
 
     useEffect(() => {
-        if (isEmpty || minLengthErr || emailError || passwordError) {
+        if (isEmpty || minLengthErr || maxLengthErr || emailError || passwordError) {
             setInputValid(false);
         } else {
             setInputValid(true);
         }
 
-    }, [isEmpty, minLengthErr, emailError, passwordError])
+    }, [isEmpty, minLengthErr, maxLengthErr, emailError, passwordError])
 
     return {
         isEmpty,
         minLengthErr,
+        maxLengthErr,
         emailError,
         passwordError,
         inputValid
@@ -62,9 +67,11 @@ export const useInput = (initialValue, validations) => {
 
     return {
         value,
+        setValue,
         onChange,
         onBlur,
         isDirty,
+        setIsDirty,
         ...valid
     }
 
