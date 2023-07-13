@@ -6,7 +6,6 @@ const MyModal = ({active, setActive, children}) => {
     function bodyScroll() {
         document.body.classList.toggle('no-scroll')
     }
-    if (active) bodyScroll();
     return (
         <div className={active ? [cl.myModal, cl.active].join(' ') : cl.myModal}
              onClick={() => {

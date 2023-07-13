@@ -64,6 +64,11 @@ const Articles = () => {
             .catch(err => console.log(err))
     }
 
+    //remove scroll when modal is active
+    function bodyModalScroll() {
+        document.body.classList.toggle('no-scroll')
+    }
+
 
     return (
         <div className="article">
@@ -71,7 +76,7 @@ const Articles = () => {
                 <div className="article__inner">
                     <div className="add-post">
                         <div className="add-post__btn">
-                            <MyButton type="button" onClick={() => setModal(true)}>Создать пост</MyButton>
+                            <MyButton type="button" onClick={() => { setModal(true); bodyModalScroll()}}>Создать пост</MyButton>
                         </div>
                         <MyModal active={modal} setActive={setModal}>
                             <AddPostForm create={createPost} />

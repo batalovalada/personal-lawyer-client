@@ -12,7 +12,7 @@ const ProfilePage = () => {
     const name = useInput('Иван Иванов', { isEmpty: true, minLength: MIN_NAME })
     const email = useInput('ivan.ivanov@gmail.com', { isEmpty: true, isEmail: true });
     const password1 = useInput('', { isEmpty: true, minLength: MIN_PASSWORD });
-    const password2 = useInput('', { isEmpty: true, minLength: MIN_PASSWORD });
+    const password2 = useInput('', { isEmpty: true, minLength: MIN_PASSWORD, checkPassword: password1.value });
 
     //authorization
     const { setIsAuth } = useContext(AuthContext);
@@ -65,6 +65,7 @@ const ProfilePage = () => {
                                     <div className="form__labels">
                                         {(password2.isDirty && password2.isEmpty) && <label className="form__err-label">Подтвердите пароль!</label>}
                                         {(password2.isDirty && password2.minLengthErr) && <label className="form__err-label">{`Требуется не менее ${MIN_PASSWORD} символов!`}</label>}
+                                        {(password2.isDirty && password2.passwordError) && <label className="form__err-label">Неверный пароль!</label>}
                                     </div>
                                 </div>
                                 <div className="form-profile__btns">

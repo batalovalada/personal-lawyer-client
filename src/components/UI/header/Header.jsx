@@ -14,8 +14,13 @@ const Header = () => {
     const [menuActive, setMenuActive] = useState(false);
 
     //remove scroll when menu is active
-    function bodyScroll() {
+    function bodyNavScroll() {
         document.body.classList.toggle('show-nav')
+    }
+
+    //remove scroll when modal is active
+    function bodyModalScroll() {
+        document.body.classList.toggle('no-scroll')
     }
 
     //authorization link
@@ -48,7 +53,7 @@ const Header = () => {
                                     </Link>
                                 :
                                 <>
-                                    <button className="header__link-icon" type="button" onClick={() => setModal(true)}>
+                                    <button className="header__link-icon" type="button" onClick={() => {setModal(true); bodyModalScroll()}}>
                                         Войти
                                         <Icons icon={{ id: 'sign-in', nameClass: 'header__icon' }} />
                                     </button>
@@ -66,7 +71,7 @@ const Header = () => {
                                     type="button"
                                     onClick={() => {
                                         setMenuActive(!menuActive);
-                                        bodyScroll();
+                                        bodyNavScroll();
                                 }}>
                                     <span>Menu</span>
                                 </button>
@@ -75,7 +80,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            <Nav active={menuActive} setActive={setMenuActive} bodyScroll={bodyScroll}/>
+            <Nav active={menuActive} setActive={setMenuActive} bodyScroll={bodyNavScroll}/>
         </header>
     )
 }
