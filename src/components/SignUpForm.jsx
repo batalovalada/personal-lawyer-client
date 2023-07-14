@@ -3,9 +3,9 @@ import { AuthContext } from "../context";
 import { useInput } from "../hooks/useValidation";
 import MyInput from "./UI/input/MyInput";
 import MyButton from "./UI/button/MyButton";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 
-const SignUpForm = () => {
+const SignUpForm = (props) => {
     //validation
     const MIN_NAME = 5;
     const MIN_PASSWORD = 8;
@@ -17,16 +17,15 @@ const SignUpForm = () => {
     //authorization
     const { setIsAuth } = useContext(AuthContext);
 
+    //navigate after authorization
+    const navigate = useNavigate();
+    
     const login = e => {
         e.preventDefault();
         setIsAuth(true);
         localStorage.setItem('auth', 'true');
+        navigate('/', { replace: true });
     }
-
-    //navigate after authorization
-    const navigate = useNavigate();
-
-    const goHome = () => navigate('/', {replace: true});
 
     return (
         <form className="form-sign" action="/" method="post" onSubmit={login}>
@@ -78,10 +77,8 @@ const SignUpForm = () => {
             <div className="form-sign__btns">
                 <MyButton
                     disabled={!name.inputValid || !email.inputValid || !password1.inputValid || !password2.inputValid}
-                    type="submit" 
-                    onClick={() => {
-                        goHome();
-                }}>
+                    type="submit"
+                >
                     Регистрация
                 </MyButton>
                 <span>Уже есть аккаунт? <Link className="form-sign__link" to="/sign-in">Войти</Link></span>

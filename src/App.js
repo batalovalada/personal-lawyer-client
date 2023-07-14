@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { StrictMode } from 'react';
-import './assets/styles/App.scss';
 import { AuthContext } from './context';
 import { BrowserRouter } from 'react-router-dom';
-import AppRouter from './components/AppRouter';
+import AppRouter from './components/appRouter/AppRouter';
 
 function App() {
     const [isAuth, setIsAuth] = useState(false);
@@ -18,11 +17,9 @@ function App() {
 
     return (
         <StrictMode> 
-            <AuthContext.Provider value={{ isAuth, setIsAuth, isLoading }}>
+            <AuthContext.Provider value={{ isAuth, setIsAuth, isLoading}}>
                 <BrowserRouter>
-                    <div className="App">
-                        <AppRouter />
-                    </div>
+                    <AppRouter />
                 </BrowserRouter>
             </AuthContext.Provider>
         </StrictMode>

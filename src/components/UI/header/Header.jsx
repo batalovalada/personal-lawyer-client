@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../../context';
 import Nav from '../nav/Nav';
 import Icons from '../../Icons';
@@ -25,6 +25,12 @@ const Header = () => {
 
     //authorization link
     const { isAuth} = useContext(AuthContext);
+
+    //check if user in sign-in, sign-up or reset pages
+    const location = useLocation();
+    const checkLoginPage = () => {
+        return location.pathname === '/sign-in' || location.pathname === '/sign-up' || location.pathname === '/reset'
+    }
 
     return (
         <header className="header">
@@ -52,18 +58,22 @@ const Header = () => {
                                         <Icons icon={{ id: 'profile', nameClass: 'header__icon header__icon--small' }} />
                                     </Link>
                                 :
-                                <>
-                                    <button className="header__link-icon" type="button" onClick={() => {setModal(true); bodyModalScroll()}}>
-                                        Войти
-                                        <Icons icon={{ id: 'sign-in', nameClass: 'header__icon' }} />
-                                    </button>
-                                    <MyModal active={modal} setActive={setModal}>
-                                        <div className="form-sign__modal">
-                                            <h3 className="form-sign__modal-title">Вход</h3>
-                                            <SignInForm modal={true} active={modal} setActive={setModal}/>
-                                        </div>
-                                    </MyModal>
-                                </>}
+                                    checkLoginPage()
+                                    ? 
+                                        <></>
+                                    :
+                                        <>
+                                            <button className="header__link-icon" type="button" onClick={() => {setModal(true); bodyModalScroll()}}>
+                                                Войти
+                                                <Icons icon={{ id: 'sign-in', nameClass: 'header__icon' }} />
+                                            </button>
+                                            <MyModal active={modal} setActive={setModal}>
+                                                <div className="form-sign__modal">
+                                                    <h3 className="form-sign__modal-title">Вход</h3>
+                                                    <SignInForm modal={true} active={modal} setActive={setModal}/>
+                                                </div>
+                                            </MyModal>
+                                        </>}
                                 
                             </div>
                             <div className="header__item">

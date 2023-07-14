@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import { AuthContext } from "../../context";
 import { useInput } from "../../hooks/useValidation";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import MyInput from "../UI/input/MyInput";
 import MyButton from "../UI/button/MyButton";
 import Intro from "../Intro";
@@ -16,11 +16,15 @@ const ProfilePage = () => {
 
     //authorization
     const { setIsAuth } = useContext(AuthContext);
+    //navigate
+    const navigate = useNavigate();
 
     const logout = () => {
         setIsAuth(false);
         localStorage.removeItem('auth');
+        navigate('/sign-in', { replace: true });
     }
+    
 
     return (
         <div className="page">
@@ -39,28 +43,28 @@ const ProfilePage = () => {
                                 </label>
                             </div>
                             <div className="form-profile__main">
-                                <div className="form-profile__item">
+                                <div className="form__item">
                                     <MyInput onBlur={() => name.onBlur()} onChange={e => name.onChange(e)} value={name.value} type="text" placeholder="Имя Фамилия"/>
                                     <div className="form__labels">
                                         {(name.isDirty && name.isEmpty) && <label className="form__err-label">Поле не заполнено!</label>}
                                         {(name.isDirty && name.minLengthErr) && <label className="form__err-label">{`Требуется не менее ${MIN_NAME} символов!`}</label>}
                                     </div>
                                 </div>
-                                <div className="form-profile__item">
+                                <div className="form__item">
                                     <MyInput onBlur={() => email.onBlur()} onChange={e => email.onChange(e)} value={email.value} type="email" placeholder="Email" />
                                     <div className="form__labels">
                                         {(email.isDirty && email.isEmpty) && <label className="form__err-label">Поле не заполнено!</label>}
                                         {(email.isDirty && email.emailError) && <label className="form__err-label">Email введён некорректно!</label>}
                                     </div>
                                 </div>
-                                <div className="form-profile__item">
+                                <div className="form__item">
                                     <MyInput onBlur={() => password1.onBlur()} onChange={e => password1.onChange(e)} value={password1.value} type="password" placeholder="Пароль" />
                                     <div className="form__labels">
                                         {(password1.isDirty && password1.isEmpty) && <label className="form__err-label">Поле не заполнено!</label>}
                                         {(password1.isDirty && password1.minLengthErr) && <label className="form__err-label">{`Требуется не менее ${MIN_PASSWORD} символов!`}</label>}
                                     </div>
                                 </div>
-                                <div className="form-profile__item">
+                                <div className="form__item">
                                     <MyInput onBlur={() => password2.onBlur()} onChange={e => password2.onChange(e)} value={password2.value} type="password" placeholder="Подтвердите пароль" />
                                     <div className="form__labels">
                                         {(password2.isDirty && password2.isEmpty) && <label className="form__err-label">Подтвердите пароль!</label>}
@@ -70,7 +74,7 @@ const ProfilePage = () => {
                                 </div>
                                 <div className="form-profile__btns">
                                     <MyButton disabled={!name.inputValid || !email.inputValid || !password1.inputValid || !password2.inputValid} type="submit">Отправить</MyButton>
-                                    <Link className="form-profile__link" to="/sign-in" onClick={logout}>Выйти</Link>
+                                    <button className="form-profile__link" type="button" onClick={logout}>Выйти</button>
                                 </div>
                             </div> {/* ./form-profile__main */}
                         </form>

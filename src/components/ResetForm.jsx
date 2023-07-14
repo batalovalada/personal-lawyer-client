@@ -9,10 +9,13 @@ const ResetForm = () => {
 
     //navigate after authorization
     const navigate = useNavigate();
-    const goSignIn = () => navigate('/sign-in', { replace: true });
+    const goSignIn = e => {
+        e.preventDefault();
+        navigate('/sign-in', { replace: true });
+    }
 
     return (
-        <form className="form-sign" action="/" method="post">
+        <form className="form-sign" action="/" method="post" onSubmit={goSignIn}>
             <div className="form__item">
                 <MyInput onBlur={() => email.onBlur()} onChange={e => email.onChange(e)} value={email.value} type="email" placeholder="Email" />
                 <div className="form__labels">
@@ -21,7 +24,7 @@ const ResetForm = () => {
                 </div>
             </div>
             <div className="form-sign__btns">
-                <MyButton disabled={!email.inputValid} type="submit" onClick={e => {e.preventDefault(); goSignIn()}}>Восстановить</MyButton>
+                <MyButton disabled={!email.inputValid} type="submit">Восстановить</MyButton>
                 <Link className="form-sign__link" to="/sign-in">Войти</Link>
                 <Link className="form-sign__link" to="/sign-up">Регистрация</Link>
             </div>

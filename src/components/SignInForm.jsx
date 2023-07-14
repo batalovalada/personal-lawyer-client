@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import { AuthContext } from "../context";
 import MyInput from "./UI/input/MyInput";
 import MyButton from "./UI/button/MyButton";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { useInput } from "../hooks/useValidation";
 
 const SignInForm = (props) => {
@@ -14,18 +14,16 @@ const SignInForm = (props) => {
     }
 
     //authorization
-    const { setIsAuth } = useContext(AuthContext);
+    const { setIsAuth} = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     const login = e => {
         e.preventDefault();
-        setIsAuth(true);
         localStorage.setItem('auth', 'true');
+        setIsAuth(true);
+        navigate(props.fromPage, { replace: true });
     }
-
-    //navigate after authorization
-    const navigate = useNavigate();
-
-    const goHome = () => navigate('/', { replace: true });
 
     return (
         <form className="form-sign" action="/" method="post" onSubmit={login}>
@@ -60,7 +58,6 @@ const SignInForm = (props) => {
                                 props.setActive(false);
                                 bodyScroll();
                             }
-                            goHome();
                         }
                     }>
                         Войти
