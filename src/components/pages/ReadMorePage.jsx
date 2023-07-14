@@ -11,26 +11,32 @@ const ReadMorePage = () => {
     const [object, setObject] = useState({});
 
     //fetch data
-    const [fetchPost, isPostLoading, postError] = useFetching(async () => {
+    const [fetchPost1, isPostLoading1, postError1] = useFetching(async () => {
         await fetch(`/posts?id=${id}`)
             .then(response => response.json())
             .then(data => { if (data) setObject(data)})
-            .catch(e => console.log(e.message))
-
-        await fetch(`/services?id=${id}`)
-            .then(response => response.json())
-            .then(data => { if (data) setObject(data) })
-            .catch(e => console.log(e.message))
-        
-        await fetch(`/about?id=${id}`)
-            .then(response => response.json())
-            .then(data => { if (data) setObject(data) })
-            .catch(e => console.log(e.message))
             
     })
 
+    const [fetchPost2, isPostLoading2, postError2] = useFetching(async () => {
+        await fetch(`/services?id=${id}`)
+            .then(response => response.json())
+            .then(data => { if (data) setObject(data) })
+
+    })
+
+    const [fetchPost3, isPostLoading3, postError3] = useFetching(async () => {
+        await fetch(`/about?id=${id}`)
+            .then(response => response.json())
+            .then(data => { if (data) setObject(data) })
+
+    })
+
+
     useEffect(() => {
-        fetchPost()
+        fetchPost1()
+        fetchPost2()
+        fetchPost3()
     }, [])
 
     //btn go back
@@ -40,16 +46,16 @@ const ReadMorePage = () => {
     return (
         <div className="page">
             {
-                postError 
+                postError1 && postError2 && postError3
             ?
                 <div className="error">
                     <div className="container">
-                        <h1 className="error__title">{`Страница не найдена! ${postError}`}</h1>
+                            <h1 className="error__title">{`Страница не найдена! ${postError1} ${postError2} ${postError3}`}</h1>
                         <Link className="error__link" to="/">перейти на главную</Link>
                     </div>
                 </div>
             :
-                isPostLoading
+                isPostLoading1 && isPostLoading2 && isPostLoading3
                 ? 
                     <div className="error">
                         <Loader />
