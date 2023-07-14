@@ -95,7 +95,7 @@
         transition: color .5s ease;
 
         @include media($mobile-br) {
-            font-size: 2.2rem;
+            font-size: 1.6rem;
         }
 
     }
@@ -110,7 +110,7 @@
         transition: color .5s ease;
 
         @include media($mobile-br) {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
         }
     }
 

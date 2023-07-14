@@ -2,8 +2,10 @@ import React from "react";
 import Intro from "../Intro";
 import Contacts from "../Contacts";
 import QuestionsForm from "../QuestionsForm";
+import ScrollToTop from "../../scrollToTop";
 
 const ContactsPage = () => {
+    ScrollToTop();
     return (
         <div className="page">
             <Intro title='Контакты' />

@@ -60,10 +60,12 @@
 
         @include media($tablet-br-1) {
             margin-bottom: 1rem;
+            font-size: 2.4rem;
         }
 
         @include media($mobile-br) {
-            font-size: 2.4rem;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
         }
     }
 
@@ -75,10 +77,11 @@
 
         @include media($tablet-br-1) {
             margin-bottom: 1.5rem;
+            font-size: 2rem;
         }
 
         @include media($mobile-br) {
-            font-size: 2rem;
+            font-size: 1.6rem;
         }
     }
 
@@ -89,10 +92,11 @@
 
         @include media($tablet-br-1) {
             text-align: center;
+            font-size: 1.6rem;
         }
 
         @include media($mobile-br) {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
         }
     }
 }

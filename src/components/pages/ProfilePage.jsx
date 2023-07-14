@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import MyInput from "../UI/input/MyInput";
 import MyButton from "../UI/button/MyButton";
 import Intro from "../Intro";
+import ScrollToTop from "../../scrollToTop";
 
 const ProfilePage = () => {
     const MIN_NAME = 5;
@@ -20,11 +21,13 @@ const ProfilePage = () => {
     const navigate = useNavigate();
 
     const logout = () => {
-        navigate('/sign-in', { replace: true });
         localStorage.removeItem('auth');
         setIsAuth(false);
+        navigate('/sign-in', { replace: true });
     }
     
+    //scroll to top
+    ScrollToTop();
 
     return (
         <div className="page">

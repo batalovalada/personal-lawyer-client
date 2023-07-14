@@ -1,4 +1,4 @@
-import AboutUsPage from "../components/pages/AboutUs";
+import AboutUsPage from "../components/pages/AboutUsPage";
 import ArticlesPage from "../components/pages/ArticlesPage";
 import ReadMorePage from "../components/pages/ReadMorePage";
 import ServicesPage from "../components/pages/ServicesPage";

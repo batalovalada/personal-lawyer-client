@@ -25,6 +25,7 @@
 }
 
 .myModalContent {
+    overflow: auto;
     position: relative;
     padding: 50px 30px;
     background-color: #fff;

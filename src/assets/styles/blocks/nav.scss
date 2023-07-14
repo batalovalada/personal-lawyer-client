@@ -3,13 +3,14 @@
     background-color: rgba($black, .7);
 
     @include media($tablet-br-1) {
+        overflow: auto;
         background: none;
         transform: translateX(100%);
         transition: transform .2s ease;
         position: absolute;
         top: 100%;
         right: 0;
-        height: 100vh;
+        height: calc(100vh - 13.1rem);
         width: 100%;
 
         &.show {
@@ -31,6 +32,10 @@
         }
 
     }
+
+    @include media($tablet-br-2) {
+        height: calc(100vh - 8.5rem);
+    }
     
 
     &__list {
@@ -42,9 +47,10 @@
         margin: 0;
 
         @include media($tablet-br-1) {
+            overflow: auto;
             flex-direction: column;
             justify-content: flex-start;
-            height: 100vh;
+            height: 100%;
             width: 100%;
             max-width: 70rem;
             margin-left: auto;

@@ -7,8 +7,6 @@ const PrivateAuth = ({children}) => {
     const { isAuth } = useContext(AuthContext);
     const location = useLocation();
 
-    console.log(isAuth);
-
     if (!isAuth) {
         return <Navigate to="/sign-in" state={{from: location}}/>
     }

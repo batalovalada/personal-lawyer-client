@@ -15,7 +15,7 @@ const Nav = ({active, setActive, bodyScroll}) => {
             <ul className="nav__list" onClick={e => e.stopPropagation()}>
                 {links.map(link =>
                     <li className="nav__item" key={link.name}>
-                        <NavLink className="nav__link" to={link.to}>{link.name}</NavLink>
+                        <NavLink className="nav__link" to={link.to} onClick={() => { setActive(false); bodyScroll() }}>{link.name}</NavLink>
                     </li>
                 )}
             </ul>

@@ -1,10 +1,12 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import Loader from "../UI/loader/Loader";
+import ScrollToTop from "../../scrollToTop";
 
 const NotFoundPage = () => {
     const location = useLocation();
     const page = location.pathname || '/';
+    ScrollToTop();
         
     return (
         (page === '/sign-in') || (page === '/sign-up') || (page === '/profile')

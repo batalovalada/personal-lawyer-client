@@ -5,6 +5,7 @@ import Intro from "../Intro";
 import MyButton from "../UI/button/MyButton";
 import QuestionsForm from "../QuestionsForm";
 import Loader from "../UI/loader/Loader";
+import ScrollToTop from "../../scrollToTop";
 
 const ReadMorePage = () => {
     const {id} = useParams();
@@ -42,6 +43,9 @@ const ReadMorePage = () => {
     //btn go back
     const navigate = useNavigate();
     const goBack = () => navigate(-1);
+
+    //scroll to top
+    ScrollToTop();
 
     return (
         <div className="page">

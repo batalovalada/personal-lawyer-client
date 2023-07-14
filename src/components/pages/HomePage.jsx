@@ -14,6 +14,7 @@ import introImg1 from '../../assets/images/intro/1.jpg';
 import introImg2 from '../../assets/images/intro/5.jpg';
 import introImg3 from '../../assets/images/intro/3.jpg';
 import introImg4 from '../../assets/images/intro/4.jpg';
+import ScrollToTop from "../../scrollToTop";
 
 const HomePage = () => {
     //content===============================================================================
@@ -165,6 +166,9 @@ const HomePage = () => {
     //======================modal===================================
     const [modal, setModal] = useState(false);
 
+    //scroll to top
+    ScrollToTop();
+
     return (
         <div className="page">
             <Slider {...introSettings}>
@@ -179,14 +183,21 @@ const HomePage = () => {
             </MyModal>
             
             <About/>
-            <Section section={{ title: "Качественные правовые услуги", content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi dicta soluta accusamus rerum voluptatem ab, odio pariatur. Perspiciatis aspernatur corporis quis, corrupti vero explicabo magnam voluptas. Dolores accusantium corrupti voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Eligendi dicta soluta accusamus rerum voluptatem ab, odio pariatur.Perspiciatis aspernatur corporis quis, corrupti vero explicabo magnam voluptas.Dolores accusantium corrupti voluptas."}}/>
+            <Section section={
+                { 
+                title: "Качественные правовые услуги",
+                content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi dicta soluta accusamus rerum voluptatem ab, odio pariatur. Perspiciatis aspernatur corporis quis, corrupti vero explicabo magnam voluptas. Dolores accusantium corrupti voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit.Eligendi dicta soluta accusamus rerum voluptatem ab, odio pariatur.Perspiciatis aspernatur corporis quis, corrupti vero explicabo magnam voluptas.Dolores accusantium corrupti voluptas.",
+                contentClassName: "section__content--text"
+                }
+            }/>
 
             <Promo/>
 
             <Section section={
                 {
                     title: "Команда",
-                    content: <StaffList allStaff={homeStaff}/>
+                    content: <StaffList allStaff={homeStaff}/>,
+                    contentClassName: ""
                 }
             } />
 
@@ -198,7 +209,8 @@ const HomePage = () => {
                         {homeServices.map(service => 
                             <ServicesItem service={service} key={service.id} />
                         )}
-                    </Slider>
+                    </Slider>,
+                    contentClassName: "section__content--slider"
                 }
             } />
 
@@ -210,10 +222,11 @@ const HomePage = () => {
                         { reviews.map(review => 
                                 <ReviewsItem review={review} key={review.id}/>
                             )}
-                    </Slider>
+                    </Slider>,
+                    contentClassName: "section__content--slider"
                 }
             }/>
-
+    
             <Contacts/>
             
         </div>
