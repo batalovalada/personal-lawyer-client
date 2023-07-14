@@ -15,14 +15,14 @@ const ProfilePage = () => {
     const password2 = useInput('', { isEmpty: true, minLength: MIN_PASSWORD, checkPassword: password1.value });
 
     //authorization
-    const { setIsAuth } = useContext(AuthContext);
+    const { setIsAuth} = useContext(AuthContext);
     //navigate
     const navigate = useNavigate();
 
     const logout = () => {
-        setIsAuth(false);
-        localStorage.removeItem('auth');
         navigate('/sign-in', { replace: true });
+        localStorage.removeItem('auth');
+        setIsAuth(false);
     }
     
 

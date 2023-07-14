@@ -20,9 +20,9 @@ const SignInForm = (props) => {
 
     const login = e => {
         e.preventDefault();
+        navigate(props.fromPage, { replace: true });
         localStorage.setItem('auth', 'true');
         setIsAuth(true);
-        navigate(props.fromPage, { replace: true });
     }
 
     return (

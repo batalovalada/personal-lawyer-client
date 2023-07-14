@@ -22,9 +22,10 @@ const SignUpForm = (props) => {
     
     const login = e => {
         e.preventDefault();
-        setIsAuth(true);
-        localStorage.setItem('auth', 'true');
         navigate('/', { replace: true });
+        localStorage.setItem('auth', 'true');
+        setIsAuth(true);
+        
     }
 
     return (

@@ -17,7 +17,7 @@ function App() {
 
     return (
         <StrictMode> 
-            <AuthContext.Provider value={{ isAuth, setIsAuth, isLoading}}>
+            <AuthContext.Provider value={{ isAuth, setIsAuth, isLoading, setIsLoading}}>
                 <BrowserRouter>
                     <AppRouter />
                 </BrowserRouter>
