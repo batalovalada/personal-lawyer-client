@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import { useLocation, Navigate } from "react-router-dom";
 import { AuthContext } from "../context";
 
-const PrivateAuth = ({children}) => {
+const RequireAuth = ({children}) => {
     //check authorization
     const { isAuth } = useContext(AuthContext);
     const location = useLocation();
@@ -14,4 +14,4 @@ const PrivateAuth = ({children}) => {
     return children
 }
 
-export default PrivateAuth;
+export default RequireAuth;

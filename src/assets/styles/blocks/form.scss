@@ -130,6 +130,12 @@
         align-items: flex-start;
         justify-content: space-evenly;
 
+        @include media($tablet-br-1) {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
         &__main {
             width: 100%;
             max-width: 60rem;
@@ -139,6 +145,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+
+            @include media($tablet-br-1) {
+                margin-bottom: 2.5rem;
+            }
         }
 
         &__photo {

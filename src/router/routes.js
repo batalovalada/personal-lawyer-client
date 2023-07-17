@@ -8,10 +8,10 @@ import SignInPage from "../components/pages/SignInPage";
 import ResetPage from "../components/pages/ResetPage";
 import NotFoundPage from "../components/pages/NotFoundPage";
 import ProfilePage from "../components/pages/ProfilePage";
-import PrivateAuth from "../hoc/PrivateAuth";
+import RequireAuth from "../hoc/RequireAuth";
 
 export const privateRoutes = [
-    { path: 'profile', component: <PrivateAuth><ProfilePage /></PrivateAuth>},
+    { path: 'profile', component: <ProfilePage />},
     { path: 'about-us', component: <AboutUsPage /> },
     { path: 'articles', component: <ArticlesPage /> },
     { path: 'articles/:id', component: <ReadMorePage /> },
@@ -23,6 +23,7 @@ export const privateRoutes = [
 ]
 
 export const publicRoutes = [
+    { path: 'profile', component: <RequireAuth><ProfilePage /></RequireAuth> },
     { path: 'about-us', component: <AboutUsPage/> },
     { path: 'articles', component: <ArticlesPage/> },
     { path: 'articles/:id', component: <ReadMorePage/> },
