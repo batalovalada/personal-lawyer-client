@@ -18,9 +18,11 @@ body {
         overflow: hidden;
 
     }
-
-    &.show-nav {
-        overflow: hidden;
+    
+    @include media($tablet-br-1) {
+        &.show-nav {
+            overflow: hidden;
+        }
     }
 
 }

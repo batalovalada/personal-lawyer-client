@@ -12,7 +12,7 @@
         height: calc(100vh - 13.1rem);
         width: 100%;
 
-        &.show {
+        .show-nav & {
             transform: translateX(0);
         }
 

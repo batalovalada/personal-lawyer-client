@@ -22,8 +22,20 @@
 
         @include media($tablet-br-1) {
             margin-bottom: 3rem;
-            width: 25rem;
+            width: 30rem;
             height: 30rem;
+        }
+
+        @include media($tablet-br-2) {
+            margin-bottom: 2.5rem;
+            width: 25rem;
+            height: 20rem;
+        }
+
+        @include media($mobile-br) {
+            margin-bottom: 2.5rem;
+            width: 15rem;
+            height: 15rem;
         }
     }
 
