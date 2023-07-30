@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from "react";
-import { AuthContext } from "../../../../app/lib/context";
+import { AuthContext } from "../../../../shared/lib/context";
 import MyInput from "../../../../shared/UI/input/MyInput";
 import MyButton from "../../../../shared/UI/button/MyButton";
 import { Link, useNavigate} from "react-router-dom";

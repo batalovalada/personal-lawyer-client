@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import { AuthContext } from "../../../../app/lib/context";
+import { AuthContext } from "../../../../shared/lib/context";
 import { useInput } from "../../../../shared/lib/hooks/useValidation";
 import MyInput from "../../../../shared/UI/input/MyInput";
 import MyButton from "../../../../shared/UI/button/MyButton";

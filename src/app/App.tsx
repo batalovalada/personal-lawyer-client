@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { AuthContext } from './lib/context';
+import { AuthContext } from '../shared/lib/context';
 import { BrowserRouter } from 'react-router-dom';
 import AppRouter from './AppRouter';
 import './assets/styles/index.scss';

@@ -1,6 +1,6 @@
 import React, {useState, useContext, useEffect} from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { AuthContext } from '../../../../app/lib/context';
+import { AuthContext } from '../../../../shared/lib/context';
 import {Nav} from '../Nav';
 import Icons from '../../../../shared/UI/icon/Icon';
 import MyModal from '../../../../shared/UI/modal/MyModal';

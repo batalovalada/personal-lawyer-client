@@ -1,8 +1,8 @@
 import React from "react";
 import { useContext } from "react";
 import { Route, Routes, Navigate } from 'react-router-dom';
-import { AuthContext } from "../lib/context";
-import { privateRoutes, publicRoutes, IRoute } from "../lib/router";
+import { AuthContext } from "../../shared/lib/context";
+import { privateRoutes, publicRoutes, IRoute } from "../providers/withRouter";
 import Layout from '../../pages/layouts/Layout';
 import HomePage from '../../pages/components/HomePage';
 import Loader from "../../shared/UI/loader/Loader";

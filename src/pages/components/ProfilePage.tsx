@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import { AuthContext } from "../../app/lib/context";
+import { AuthContext } from "../../shared/lib/context";
 import { useNavigate } from "react-router-dom";
 import {Profile} from "../../features/AuthForms";
 import {Intro} from "../../entities/Intro";
